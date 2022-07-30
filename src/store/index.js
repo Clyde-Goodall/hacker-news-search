@@ -12,19 +12,19 @@ const store = createStore({
         }
     },
     mutations: {
+        // self explanatory
         saveSearchHistory(state, {query}) {
             state.search_history.push({query: query.search, tags: query.tags})
-
         },
+        // also self-explanatory
         saveSearchResults(state, {query, res}) {
-            // stores separated query and tags in an object to be read in /history
-            console.log(state.search_history)
             state.search_results.push([res.data.hits])
-            state.pages++
         },
+        // preps search loop
         prepSearch(state) {
             state.searching = true
         },
+        // initial/subsequent searches will cancel ongoing searches & reset results using this
         resetSearch(state) {
             state.searching = false
             state.search_results = []
@@ -54,9 +54,10 @@ const store = createStore({
             // get all results in increments of 20 asynchronously so the page can still render & load in background
             let limit = false
             let counter = 0
+            // stores search history before loop since loop might take a while/be interrupted
             commit('saveSearchHistory', {query})
             while(!limit && state.searching) {
-                console.log(`${query_string}&page=${counter}`)
+                // page by page pulling
                 const res = await inst.search(`${query_string}&page=${counter}`)
                 if(res.data.hits.length == 0) {
                     limit = true

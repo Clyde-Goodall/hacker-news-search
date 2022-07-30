@@ -9,12 +9,11 @@ export default class Api {
     }
 
     async search(query) {
-        // build query tag URI
-
         // finally, get that response
-        const res = await this.inst.get(query)
-        console.log(res.data.hits)
-
-        return res
+        try {
+            return await this.inst.get(query)
+        } catch(e) {
+            console.log(e)
+        }
     }
 }

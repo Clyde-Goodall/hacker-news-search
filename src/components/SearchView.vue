@@ -34,6 +34,7 @@ export default {
         page: 0
     }
   },
+// if search ever gets interrupted, reset page count so we aren't lost in undefined territory
   watch: {
     'this.searching': function() {
         if(searching == false) {
@@ -43,9 +44,8 @@ export default {
   },
   methods: {
     changePage(num) {
+        // lower and upper bounds for page count
         (this.page + num) < 0 || (this.page + num) > this.search_results.length - 2 ? this.page : this.page += num
-
-
     }
   },
   computed: {
