@@ -3,7 +3,7 @@
         <!-- spit out all the search results -->
         <div v-for="h in search_history" :key="h.query">
 
-            <div class="search-result">{{h.query}}</div>
+            <div class="search-result">{{ h.query }}</div>
 
         </div>
     </div>

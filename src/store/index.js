@@ -9,7 +9,6 @@ const store = createStore({
             searching: false,
             search_results: [],
             search_history: [],
-            new_search: false
         }
     },
     mutations: {
