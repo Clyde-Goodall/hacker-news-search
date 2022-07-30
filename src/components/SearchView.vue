@@ -43,12 +43,9 @@ export default {
   },
   methods: {
     changePage(num) {
-        if(this.page == 0) {
-            (this.page + num) < 0 ? this.page = 0 : this.page += num
-        } else {
-            (this.page + num) > this.search_results.length ? this.page : this.page += num
-        }
-        console.log(this.page)
+        (this.page + num) < 0 || (this.page + num) > this.search_results.length - 2 ? this.page : this.page += num
+
+
     }
   },
   computed: {
