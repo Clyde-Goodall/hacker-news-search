@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* tags */
+body {
+  @apply bg-gray-200;
+}
+
+h1 {
+  @apply text-4xl text-gray-600;
+}
+
+input[type="text"] {
+  @apply w-1/3 py-3 px-8 h-auto text-xl my-5 rounded-lg shadow-md border border-gray-300 outline-none text-gray-800;
+}
+input[type="button"] {
+  @apply w-auto py-2 px-2 mx-5 h-auto text-sm rounded-lg shadow-md border border-gray-300 outline-none text-gray-800 bg-white;
+}
+input[type="button"]:active {
+  @apply  text-gray-900 bg-gray-100;
+}
+/* simple classes */
+
+/* full-sized div reused on home and search */
+.centered {
+  @apply flex items-center justify-center;
+}
+
+.nav {
+  @apply h-24 w-full flex flex-row items-center shadow-md border border-gray-300 box-border bg-white mb-24 mt-0 ;
+}
+
+.nav .item {
+  @apply ml-8 text-gray-600 text-2xl;
+}
+
+.search-result {
+  @apply mx-10 my-5 bg-white p-5 rounded-lg shadow-sm border border-gray-300 w-auto box-border text-gray-800 text-xl flex flex-col;
+}
+
